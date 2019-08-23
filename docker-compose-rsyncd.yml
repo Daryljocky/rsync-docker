@@ -1,0 +1,13 @@
+rsyncd:
+  container_name: rsyncd
+  image: daryljocky/rsync
+  privileged: true
+  restart: always
+  ports:
+  - 873:873
+  environment:
+  - "SECTION=sjtu"
+  - "SYNC_PASSWORD=83719730"
+  volumes:
+  - /tmp/test2:/data 
+  - ./docker-entrypoint-rsyncd.sh:/docker-entrypoint.sh

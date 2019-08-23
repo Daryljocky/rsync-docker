@@ -1,0 +1,11 @@
+lsyncd:
+  container_name: lsyncd
+  image: daryljocky/rsync
+  privileged: true
+  restart: always
+  environment:
+  - "SERVER_IP=172.17.0.1"
+  - "SECTION=sjtu"
+  - "SYNC_PASSWORD=83719730"
+  volumes:
+  - /tmp/test:/data 

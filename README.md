@@ -1,5 +1,4 @@
 # 实时同步
---
 ---- 
 
 服务端由rsyncd实现，客户端由lsyncd实现，通过同一个镜像两个不同的docker-compose.yml文件进行启动

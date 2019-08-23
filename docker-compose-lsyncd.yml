@@ -5,7 +5,7 @@ lsyncd:
   restart: always
   environment:
   - "SERVER_IP=172.17.0.1"
-  - "SECTION=sjtu"
-  - "SYNC_PASSWORD=83719730"
+  - "SECTION={{SECTION}}"
+  - "SYNC_PASSWORD={{PASSWORD}}"
   volumes:
   - /tmp/test:/data 

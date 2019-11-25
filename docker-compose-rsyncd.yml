@@ -5,9 +5,10 @@ rsyncd:
   restart: always
   ports:
   - 873:873
-  environment:
-  - "SECTION={{SECTION}}"
-  - "SYNC_PASSWORD={{PASSWORD}}"
   volumes:
   - /tmp/test2:/data 
-  - ./docker-entrypoint-rsyncd.sh:/docker-entrypoint.sh
+  - /data/var/log/rsyncd:/var/log/rsyncd
+  - /etc/localtime:/etc/localtime
+  - ./etc/rsyncd.d:/etc/rsyncd.d
+  - ./etc/rsyncd.conf:/etc/rsyncd.conf
+  entrypoint: /docker-entrypoint-rsyncd.sh

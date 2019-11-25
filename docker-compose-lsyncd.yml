@@ -4,8 +4,11 @@ lsyncd:
   privileged: true
   restart: always
   environment:
-  - "SERVER_IP=172.17.0.1"
+  - "SERVER_IP={{SERVER_IP}}"
   - "SECTION={{SECTION}}"
   - "SYNC_PASSWORD={{PASSWORD}}"
   volumes:
   - /tmp/test:/data 
+  - /data/var/log/lsyncd:/var/log/lsyncd
+  - /etc/localtime:/etc/localtime
+  entrypoint: /docker-entrypoint-lsyncd.sh
